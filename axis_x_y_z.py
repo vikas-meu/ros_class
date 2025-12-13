@@ -2,7 +2,7 @@ import cv2
 import cv2.aruco as aruco
 import numpy as np
 
-# ---------------- Camera calibration ----------------
+ 
 camera_matrix = np.array([
     [640, 0, 320],
     [0, 640, 240],
@@ -11,14 +11,14 @@ camera_matrix = np.array([
 
 dist_coeffs = np.zeros((5, 1))
 
-# ---------------- ArUco config ----------------
+ 
 MARKER_SIZE = 0.05  # meters
 
 aruco_dict = aruco.getPredefinedDictionary(aruco.DICT_4X4_50)
 parameters = aruco.DetectorParameters()
 detector = aruco.ArucoDetector(aruco_dict, parameters)
 
-# 3D marker corner points (world coordinates)
+ 
 half = MARKER_SIZE / 2
 obj_points = np.array([
     [-half,  half, 0],
@@ -75,3 +75,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
